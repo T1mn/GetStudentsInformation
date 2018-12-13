@@ -150,5 +150,4 @@ if __name__ == '__main__':
 
 for day in days:
     getInformation(day)
-
-i = input('输入任意键+回车退出')
+i = input('输入任意键后回车退出')
