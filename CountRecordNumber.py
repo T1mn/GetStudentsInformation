@@ -2,6 +2,7 @@ from urllib import request,parse
 from http import cookiejar
 from datetime import datetime, date, timedelta
 import re
+import os
 import sys
 # 创建cookiejar实例对象
 cookie = cookiejar.CookieJar()
@@ -15,17 +16,18 @@ https_handle = request.HTTPSHandler()
 # 有了opener，就可以替代urlopen来获取请求了
 opener =  request.build_opener(cookie_handle,http_handle,https_handle)
 
-print ('为了方便英语组的小伙伴对录屏数量进行查缺补漏，写了个《统计录屏数》的爬虫')
-print ('绿色无毒，源码地址：https://github.com/neninee/GetStudentsInformation/blob/master/GSLv0.2_backup.py')
-username = input("输入用户名：")
-password = input("输入密码:")
+print ('\n\n\n  为了方便英语组的小伙伴对录屏数量进行查缺补漏，写了此脚本')
+print ('\n  开源地址（可放心使用）：https://github.com/neninee')
+username = input("\n  输入用户名（例：tangguofang)：")
+password = input("\n  输入用户名对应的密码：")
 
 # username = 'tangguofang'
 # password = '******'
 
-date_pre = input("输入起始日期（例：2018-01-01）：")
-date_for = input("输入起始日期（例：2018-01-01）：")
+date_pre = input("\n  输入起始日期（例：2018-01-01）：")
+date_for = input("\n  输入起始日期（例：2018-01-02）：")
 
+os.system('cls')
 # date_pre = '2018-01-06'
 # date_for = '2018-01-07'
 
@@ -93,7 +95,7 @@ def getInformation(day):
     #出席人数
     attend = 0
     newresults =[]
-    print ('------',day,'------')
+    print ('\n--------',day,'--------')
     for result in results:
         print(result[0],result[1],result[2],result[3])
         if result[2]=='到':
