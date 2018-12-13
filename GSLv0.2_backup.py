@@ -19,7 +19,7 @@ username = input("输入用户名：")
 password = input("输入密码:")
 
 # username = 'tangguofang'
-# password = 'b890kl'
+# password = '**********'
 
 
 # date_pre = '2018-12-01'
