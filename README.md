@@ -28,3 +28,5 @@ import sys
 3.计算出席率
  
 4.计算老师应上传录屏类型与数量
+## 下载地址
+https://github.com/neninee/GetStudentsInformation/releases
