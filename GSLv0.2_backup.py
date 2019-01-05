@@ -95,17 +95,17 @@ def getInformation(day):
     total = len(results)
     #出席人数
     attend = 0
-
-    print ('------',day,'------')
-    for result in results:
-        print(result[0],result[1],result[2],result[3])
-        if result[2]=='到':
-            attend=attend+1
-    print ('当天人数：',total)
-    print ('出席人数：',attend)
-    if total != 0:
-        print (' 出席率：',attend/total*100,'%')
-
+    if (total!=0):
+        print ('------',day,'------')
+        for result in results:
+            print(result[0],result[1],result[2],result[3])
+            if result[2]=='到':
+                attend=attend+1
+        print ('当天人数：',total)
+        print ('出席人数：',attend)
+        if total != 0:
+            print (' 出席率：',attend/total*100,'%')
+    return attend
     #如果二门或三门连续的课都为正式课，则开始判断是否是1vn
     count = 0
     #if results[count][3] == '正式课' and results[count+1][3] == '正式课':
@@ -113,14 +113,21 @@ def getInformation(day):
             #若是，则判断第二个时间和第三个时间是否相差十五分钟：
                 #若是则 1v3 的数量+1
                 #否则 1v2 的数量+1
+def conSalary(attend):
+    payNum= int(input('成了几单'))
+    salary = payNum * 240 + (attend - payNum)*30
+    conRate =int( (payNum / attend)*100)
+    return salary,conRate
 
 if __name__ == '__main__':
     '''
     依次执行上面两个函数
     '''
     login(username,password)
-
+attend = 0
 for day in days:
-    getInformation(day)
+    attend = attend + getInformation(day)
+print('\n出席总人数:',attend)
+print('(工资,转化率):',conSalary(attend))
 
 i = input('输入任意键+回车退出')
